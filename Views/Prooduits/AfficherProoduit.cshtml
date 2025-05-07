@@ -1,0 +1,22 @@
+﻿@model Esshop.Models.Prooduit
+
+@{
+    ViewBag.Title = "AfficherProduct";
+}
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Afficher les détails du Product</h3>
+    </div>
+    <div class="panel-body">
+        <p>Nom: @Html.DisplayFor(Model => Model.NomProduit)</p>
+      
+        <p>
+            <img width="200" src="@Url.Action("GetImage", new {id=Model.Id})" />
+        </p>
+  
+        <p>Description : @Html.DisplayFor(Model => Model.Description)</p>
+        <p>Prix : @Html.DisplayFor(Model => Model.Prix)</p>
+        <p>Quantité : @Html.DisplayFor(Model => Model.Quantite)</p>
+    </div>
+</div>

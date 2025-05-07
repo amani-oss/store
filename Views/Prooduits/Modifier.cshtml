@@ -1,0 +1,69 @@
+﻿@model Esshop.Models.Prooduit
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>Modifier produit</h2>
+
+@using (Html.BeginForm())
+    
+{
+@Html.AntiForgeryToken();
+
+
+<form class="form-horizontal">
+    <fieldset>
+
+        <div class="form-group">
+            <label class="col-lg-2 control-label">ID du produit:</label>
+            <div class="col-lg-10">
+
+                @Html.EditorFor(model => model.Id)
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Nom:</label>
+            <div class="col-lg-10">
+
+                @Html.EditorFor(model => model.NomProduit)
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Description:</label>
+            <div class="col-lg-10">
+                @Html.EditorFor(model => model.Description)
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Quantite:</label>
+            <div class="col-lg-10">
+                @Html.EditorFor(Model => Model.Quantite)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Prix:</label>
+            <div class="col-lg-10">
+                @Html.EditorFor(Model => Model.Prix)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="submit" value=" Modifier" class="btn btn-primary">Modifier</button>
+                <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("ListeProoduit", "Prooduits")'">Revenir au catalogue</button>
+
+            </div>
+        </div>
+    </fieldset>
+</form>
+}
+}

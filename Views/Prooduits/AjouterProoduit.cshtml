@@ -1,0 +1,64 @@
+﻿@model Esshop.Models.Prooduit
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>Ajouter produit</h2>
+
+@using (Html.BeginForm("AjouterProoduit", "Prooduits",FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+<form class="form-horizontal">
+    <fieldset>
+
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Nom:</label>
+            <div class="col-lg-10">
+
+                @Html.EditorFor(model => model.NomProduit)
+                @Html.ValidationMessageFor(model => model.NomProduit)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Image du produit:</label>
+            <div class="col-lg-10">
+
+               <input type="file" name="Image"/>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Description:</label>
+            <div class="col-lg-10">
+                @Html.EditorFor(model => model.Description)
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Quantite:</label>
+            <div class="col-lg-10">
+                @Html.EditorFor(Model => Model.Quantite)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Prix:</label>
+            <div class="col-lg-10">
+                @Html.EditorFor(Model => Model.Prix)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="submit" value=" AjouterProoduit" class="btn btn-primary">Ajouter</button>
+                <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("ListeProoduit", "Prooduits")'">Revenir au catalogue</button>
+
+            </div>
+        </div>
+    </fieldset>
+</form>
+}

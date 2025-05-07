@@ -1,0 +1,38 @@
+﻿
+
+@model IEnumerable<Esshop.Models.Prooduit>
+
+
+@{
+    ViewBag.Title = "ListeProduct";
+}
+
+<h2>Liste des produits</h2>
+
+<table class="table table-striped table-hover ">
+    <tr class="info">
+        <th>@Html.DisplayNameFor(Model => Model.NomProduit)</th>
+        <th>@Html.DisplayNameFor(Model => Model.ProduitImage)</th>
+        <th>@Html.DisplayNameFor(Model => Model.Description)</th>
+        <th>@Html.DisplayNameFor(Model => Model.Prix)</th>
+        <th>@Html.DisplayNameFor(Model => Model.Quantite)</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(Model => item.NomProduit)</td>>
+            <td>  @if (item.ProduitImage != null)
+            {
+             <img width="200" src="@Url.Action("GetImage", new { id = item.Id })" />}
+            </td>
+            <td>@Html.DisplayFor(Model => item.Description)</td>
+            <td>@Html.DisplayFor(Model => item.Prix)</td>
+            <td>@Html.DisplayFor(Model => item.Quantite)</td>
+            <td>@Html.ActionLink("Afficher détails", "AfficherProoduit", new { id = item.Id })</td>
+
+        </tr>
+    }
+</table>
+
+
